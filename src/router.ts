@@ -1,6 +1,6 @@
 import {Route, RouteOptions} from './route';
 
-export type RouteHandler<T> = (params: Record<string, string | number>, data?: T) => any | Promise<any>;
+export type RouteHandler<T> = (params: Record<string, string | number>, data: T) => any | Promise<any>;
 
 interface RouteEntry<T> {
   route: Route;
@@ -23,7 +23,7 @@ export class Router<T> {
     return route;
   }
 
-  async handle(path: string, data?: T) {
+  async handle(path: string, data: T) {
     for (const {route, handler} of this.entries) {
       const params = route.match(path);
       if (params) {

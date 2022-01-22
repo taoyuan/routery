@@ -1,6 +1,6 @@
 {
   "name": "routery",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A router that uses pathor to match and parse parametric URLs",
   "author": "TY <towyuan@outlook.com>",
   "license": "MIT",

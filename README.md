@@ -11,7 +11,7 @@ npm i routery
 ## Usage
 
 ```ts
-import {Router} from './router';
+import {Router} from 'routery';
 
 // `Message` is an example type of custome data
 const router = new Router<Message>({
@@ -40,3 +40,21 @@ router.handle('/a/foo/bar/hello', message);
 ```
 
 `path` format see [pathor](https://github.com/taoyuan/pathor)
+
+## Builtin Topic Options
+
+### MQTT (default)
+
+```ts
+import {MqttTopic} from "routery";
+
+new Router(MqttTopic);
+```
+
+### AMQP
+
+```ts
+import {AmqpTopic} from "routery";
+
+new Router(AmqpTopic);
+```

@@ -46,7 +46,7 @@ router.handle('/a/foo/bar/hello', message);
 ### MQTT (default)
 
 ```ts
-import {MqttTopic} from "routery";
+import {MqttTopic} from 'routery';
 
 new Router(MqttTopic);
 ```
@@ -54,7 +54,7 @@ new Router(MqttTopic);
 ### AMQP
 
 ```ts
-import {AmqpTopic} from "routery";
+import {AmqpTopic} from 'routery';
 
 new Router(AmqpTopic);
 ```

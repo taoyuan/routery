@@ -17,11 +17,10 @@ export class Router<T> {
     this.options = options ?? {};
   }
 
-  add(path: string, handler: RouteHandler<T>) {
-    this.entries.push({
-      route: new Route(path, this.options),
-      handler,
-    });
+  add(pathOrRoute: string | Route, handler: RouteHandler<T>) {
+    const route = typeof pathOrRoute === 'string' ? new Route(pathOrRoute, this.options) : pathOrRoute;
+    this.entries.push({route, handler});
+    return route;
   }
 
   async handle(path: string, data?: T) {

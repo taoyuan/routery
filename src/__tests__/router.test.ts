@@ -23,7 +23,21 @@ describe('Router', function () {
     expect(route.options.separators).toEqual(route.options.separators);
   });
 
-  it(`should handle matched path`, async () => {
+  it(`should handle matched path without params`, async () => {
+    const d = defer();
+    const router = new Router<string>();
+
+    let count = 0;
+    router.add('$foo/bar', () => {
+      if (++count === 2) d.resolve();
+    });
+
+    await router.handle('$foo/bar', 'hello');
+    await router.handle('$foo/bar', 'world');
+    await d;
+  });
+
+  it(`should handle matched path with params`, async () => {
     const d = defer();
     const router = new Router<string>();
 

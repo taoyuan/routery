@@ -54,4 +54,12 @@ describe('Router', function () {
     await router.handle('$foo/b/hello', 'world');
     await d;
   });
+
+  it('should remove added route', function () {
+    const router = new Router();
+    const [, remove] = router.add('foo', noop);
+    expect(router).toHaveLength(1);
+    remove();
+    expect(router).toHaveLength(0);
+  });
 });
